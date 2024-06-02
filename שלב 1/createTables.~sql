@@ -1,0 +1,65 @@
+CREATE TABLE commander
+(
+  comID INT NOT NULL,
+  rank VARCHAR(15) NOT NULL,
+  numofunitcom INT NOT NULL,
+  PRIMARY KEY (comID)
+);
+ 
+CREATE TABLE driver
+(
+  license_number INT NOT NULL,
+  drID INT NOT NULL,
+  numofunitdri INT NOT NULL,
+  comID,
+  PRIMARY KEY (drID),
+  FOREIGN KEY (comID) REFERENCES commander(comID)
+);
+ 
+CREATE TABLE equipment_manager
+(
+  equID INT NOT NULL,
+  expertise VARCHAR(15) NOT NULL,
+  numofuniteqi INT NOT NULL,
+  comID,
+  PRIMARY KEY (equID),
+  FOREIGN KEY (comID) REFERENCES commander(comID)
+);
+ 
+CREATE TABLE medic
+(
+  medID INT NOT NULL,
+  seniority INT NOT NULL,
+  numofunitmed INT NOT NULL,
+  comID,
+  equID,
+  PRIMARY KEY (medID),
+  FOREIGN KEY (comID) REFERENCES commander(comID),
+  FOREIGN KEY (equID) REFERENCES equipment_manager(equID)
+);
+ 
+CREATE TABLE doctor
+(
+  docID INT NOT NULL,
+  license_number INT NOT NULL,
+  seniority INT NOT NULL,
+  numofunitdoc INT NOT NULL,
+  comID,
+  equID,
+  PRIMARY KEY (docID),
+  FOREIGN KEY (comID) REFERENCES commander(comID),
+  FOREIGN KEY (equID) REFERENCES equipment_manager(equID)
+);
+ 
+CREATE TABLE paramedic
+(
+  parID INT NOT NULL,
+  license_number INT NOT NULL,
+  seniority INT NOT NULL,
+  numofunitpar INT NOT NULL,
+  comID,
+  equID,
+  PRIMARY KEY (parID),
+  FOREIGN KEY (comID) REFERENCES commander(comID),
+  FOREIGN KEY (equID) REFERENCES equipment_manager(equID)
+);
