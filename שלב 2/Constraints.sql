@@ -5,10 +5,10 @@ ALTER TABLE driver
 ADD CONSTRAINT unique_license_number UNIQUE (license_number);
 
 ALTER TABLE doctor
-ADD CONSTRAINT check_doctor_seniority CHECK (seniority <= 40);
+ADD CONSTRAINT check_doctor_seniority CHECK (seniority <= 41);
 
 ALTER TABLE paramedic
-ADD CONSTRAINT check_paramedic_seniority CHECK (seniority <= 40);
+ADD CONSTRAINT check_paramedic_seniority CHECK (seniority <= 41);
 
 ALTER TABLE medic
-ADD CONSTRAINT check_medic_seniority CHECK (seniority <= 40);
+ADD CONSTRAINT check_medic_seniority CHECK (seniority <= 41);
