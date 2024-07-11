@@ -1,6 +1,6 @@
 SELECT rank, COUNT(numofunitcom)
 FROM commander
-GROUP BY rank;
+GROUPÂ BYÂ rank;
 
 
 SELECT MAX(COUNT(numofunitdri))
@@ -15,17 +15,11 @@ UNION
 SELECT parid
 FROM paramedic
 WHERE numofunitpar = 51
-UNION
-SELECT medid
-FROM medic
-WHERE numofunitmed = 51;
 
 
 SELECT DISTINCT seniority
 FROM doctor NATURAL JOIN medic
-WHERE numofunitdoc = numofunitmed;
-
-
+WHERE numofunitdocÂ =Â numofunitmed;
 
 
 
@@ -37,7 +31,7 @@ WHERE seniority = 38
 
 UPDATE commander
 SET rank = 'ravseren'
-WHERE comid = 'seren'
+WHERE comid = 693509106
 
 
 Delete from driver
